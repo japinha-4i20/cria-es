@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Pedido</title>
+    <style>
+        /* Reset de Estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden; /* Impede que o botão saia da tela */
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #0004ff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accept {
+            background-color: #4caf50;
+        }
+
+        .accept:hover {
+            background-color: #45a049;
+        }
+
+        .decline {
+            background-color: #f44336;
+            transition: background-color 0.3s ease;
+        }
+
+        .decline:hover {
+            background-color: #e53935;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .hidden-message.success {
+            color: #4caf50;
+        }
+
+        .hidden-message.decline {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Poderia me dar o cuzinho?</h1>
+        <p>Você é o amor da minha vida, gostaria muito de degustar seu</p>
+        <div class="button-container">
+            <button class="button accept" onclick="showMessage(true)">Sim</button>
+            <button class="button decline" onclick="redirectToYouTube()">Não</button>
+        </div>
+        <p id="response" class="hidden-message"></p>
+    </div>
+
+    <script>
+        function showMessage(accepted) {
+            var messageElement = document.getElementById('response');
+            if (accepted) {
+                messageElement.textContent = "Que delicia, amassarei esse seu brioquinho!";
+                messageElement.classList.add('success');
+            } else {
+                messageElement.textContent = "Não acredito! :(";
+                messageElement.classList.add('decline');
+            }
+            messageElement.style.display = 'block';
+        }
+
+        function redirectToYouTube() {
+            // Redireciona para o link do YouTube
+            window.location.href = 'https://www.youtube.com/watch?v=M3_405oMg3s'; // Substitua com o link desejado
+        }
+    </script>
+</body>
+</html>
